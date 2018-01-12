@@ -1,0 +1,59 @@
+{
+  "name": "<%= name %>",
+  "version": "0.0.1",
+  "description": "<%= description %>",
+  "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build:pre": "react-scripts build",
+    "build:pkg": "cd build/; zip -r ../$npm_package_name-$npm_package_version.zip .",
+    "build": "npm run build:pre && npm run build:pkg",
+    "test": "react-scripts test --env=jsdom",
+    "test:coverage": "npm run test -- --no-cache --coverage",
+    "test:ci": "npm run test:coverage -- --runInBand",
+    "lint": "eslint src",
+    "prepush": "npm run lint && npm run test:coverage",
+    "eject": "react-scripts eject"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js}",
+      "!src/index.js",
+      "!src/registerServiceWorker.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "banches": 70,
+        "functions": 50,
+        "lines": 70,
+        "statements": 70
+      }
+    }
+  },
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "styled-components": "^2.4.0",
+    "prop-types": "^15.6.0",
+    "recompose": "^0.26.0",
+    "dotenv": "^4.0.0",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.1.2",
+    "redux": "^3.7.2",
+    "redux-actions": "^2.2.1",
+    "redux-form": "^7.0.3"
+  },
+  "devDependencies": {
+    "babel-plugin-module-resolver": "^2.7.1",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-babel": "^4.1.2",
+    "eslint-plugin-chai-friendly": "^0.4.0",
+    "eslint-plugin-react": "^7.2.1",
+    "react-scripts": "1.0.17",
+    "react-test-renderer": "^16.2.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "sinon": "^3.2.1",
+    "husky": "^0.14.3"
+  }
+}
