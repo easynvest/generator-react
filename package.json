@@ -1,21 +1,49 @@
 {
-  "name": "@easynvest-team/generator-react",
+  "name": "@easynvest/generator-react",
   "version": "0.1.0",
   "description": "",
-  "homepage": "",
-  "author": {
-    "name": "Guilherme Mangabeira Gregio",
-    "email": "guilherme@3gweb.com.br",
-    "url": ""
-  },
-  "files": [
-    "generators"
-  ],
   "main": "generators/index.js",
-  "keywords": [
-    "",
-    "yeoman-generator"
-  ],
+  "license": "Apache-2.0",
+  "scripts": {
+    "prepublish": "nsp check",
+    "pretest": "eslint .",
+    "precommit": "lint-staged",
+    "test": "jest"
+  },
+  "files": ["generators"],
+  "keywords": ["yeoman-generator"],
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "lint-staged": {
+    "*.js": ["eslint --fix", "git add"],
+    "*.json": ["prettier --write", "git add"]
+  },
+  "eslintConfig": {
+    "extends": ["xo", "prettier"],
+    "env": {
+      "jest": true,
+      "node": true
+    },
+    "rules": {
+      "prettier/prettier": [
+        "error",
+        {
+          "singleQuote": true,
+          "printWidth": 90
+        }
+      ]
+    },
+    "plugins": ["prettier"]
+  },
+  "homepage": "https://github.com/easynvest/generator-react#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/easynvest/generator-react.git"
+  },
+  "bugs": {
+    "url": "https://github.com/easynvest/generator-react/issues"
+  },
   "devDependencies": {
     "yeoman-test": "^1.7.0",
     "yeoman-assert": "^3.1.0",
@@ -39,48 +67,5 @@
   },
   "peerDependencies": {
     "generator-git-init": "^1.1.3"
-  },
-  "jest": {
-    "testEnvironment": "node"
-  },
-  "scripts": {
-    "prepublish": "nsp check",
-    "pretest": "eslint .",
-    "precommit": "lint-staged",
-    "test": "jest"
-  },
-  "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "git add"
-    ],
-    "*.json": [
-      "prettier --write",
-      "git add"
-    ]
-  },
-  "eslintConfig": {
-    "extends": [
-      "xo",
-      "prettier"
-    ],
-    "env": {
-      "jest": true,
-      "node": true
-    },
-    "rules": {
-      "prettier/prettier": [
-        "error",
-        {
-          "singleQuote": true,
-          "printWidth": 90
-        }
-      ]
-    },
-    "plugins": [
-      "prettier"
-    ]
-  },
-  "repository": "guilhermegregio/generator-easynvest-react",
-  "license": "Apache-2.0"
+  }
 }

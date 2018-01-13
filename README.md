@@ -3,17 +3,17 @@
 
 ## Installation
 
-First, install [Yeoman](http://yeoman.io) and @easynvest-team/generator-react using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+First, install [Yeoman](http://yeoman.io) and @easynvest/generator-react using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
 
 ```bash
 npm install -g yo
-npm install -g @easynvest-team/generator-react
+npm install -g @easynvest/generator-react
 ```
 
 Then generate your new project:
 
 ```bash
-yo @easynvest-team/generator-react
+yo @easynvest/generator-react
 ```
 
 ## Getting To Know Yeoman
