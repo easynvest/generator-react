@@ -1,0 +1,8 @@
+{
+  "containers": [
+    {
+      "name": "App",
+      "locators": []
+    }
+  ]
+}

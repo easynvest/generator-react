@@ -6,14 +6,19 @@
   "scripts": {
     "start": "react-scripts start",
     "build:pre": "react-scripts build",
-    "build:pkg": "cd build/; zip -r ../$npm_package_name-$npm_package_version.zip .",
+    "build:pkg":
+      "cd build/; zip -r ../$npm_package_name-$npm_package_version.zip .",
     "build": "npm run build:pre && npm run build:pkg",
+    "webdrive-update": "webdriver-manager update",
     "test": "react-scripts test --env=jsdom",
     "test:coverage": "npm run test -- --no-cache --coverage",
     "test:ci": "npm run test:coverage -- --runInBand",
+    "test:e2e": "npm run webdrive-update && npm run e2e",
+    "e2e": "protractor protractor.conf.js",
     "lint": "eslint src",
     "prepush": "npm run lint && npm run test:coverage",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "mock-server": "./node_modules/.bin/mock-server start"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -41,7 +46,8 @@
     "react-router-dom": "^4.1.2",
     "redux": "^3.7.2",
     "redux-actions": "^2.2.1",
-    "redux-form": "^7.0.3"
+    "redux-form": "^7.0.3",
+    "axios": "^0.17.1"
   },
   "devDependencies": {
     "babel-plugin-module-resolver": "^2.7.1",
@@ -54,6 +60,9 @@
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "sinon": "^3.2.1",
-    "husky": "^0.14.3"
+    "husky": "^0.14.3",
+    "walnutjs": "^1.0.44",
+    "@easynvest/mock-server": "0.0.1",
+    "protractor-cucumber-framework": "^4.1.1"
   }
 }
