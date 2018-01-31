@@ -232,7 +232,7 @@ module.exports = class extends Generator {
 
   _writingE2eReports() {
     this.fs.copy(
-      this.templatePath('e2e/report/.gitignore'),
+      this.templatePath('e2e/report/gitignore'),
       this.destinationPath('e2e/report/.gitignore')
     );
   }
