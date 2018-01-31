@@ -5,6 +5,8 @@ const yosay = require('yosay');
 
 module.exports = class extends Generator {
   prompting() {
+    this.appname = this.appname.replace(/ /g, '.');
+
     this.log(
       yosay(
         'Welcome to the cool ' + chalk.red('generator-easynvest-react') + ' generator!'
