@@ -59,6 +59,7 @@ module.exports = class extends Generator {
     this._writingLogo();
     this._writingIndexBootstrapApp();
     this._writingApp();
+    this._writingE2e();
 
     this.composeWith(require.resolve('generator-git-init'));
   }
@@ -190,6 +191,49 @@ module.exports = class extends Generator {
     this.fs.copy(
       this.templatePath('eslintignore'),
       this.destinationPath('.eslintignore')
+    );
+  }
+
+  _writingE2e() {
+    this._writingE2eProtractor();
+    this._writingE2eFeatureSample();
+    this._writingE2eLocatorsSample();
+    this._writingE2eVariables();
+    this._writingE2eReports();
+  }
+
+  _writingE2eProtractor() {
+    this.fs.copy(
+      this.templatePath('protractor.conf.js'),
+      this.destinationPath('protractor.conf.js')
+    );
+  }
+
+  _writingE2eFeatureSample() {
+    this.fs.copy(
+      this.templatePath('e2e/features/sample.feature'),
+      this.destinationPath('e2e/features/sample.feature')
+    );
+  }
+
+  _writingE2eLocatorsSample() {
+    this.fs.copy(
+      this.templatePath('e2e/locators/app.json'),
+      this.destinationPath('e2e/locators/app.json')
+    );
+  }
+
+  _writingE2eVariables() {
+    this.fs.copy(
+      this.templatePath('e2e/variables.json'),
+      this.destinationPath('e2e/variables.json')
+    );
+  }
+
+  _writingE2eReports() {
+    this.fs.copy(
+      this.templatePath('e2e/report/.gitignore'),
+      this.destinationPath('e2e/report/.gitignore')
     );
   }
 };
