@@ -13,7 +13,7 @@ npm install -g @easynvest/generator-react
 Then generate your new project:
 
 ```bash
-yo @easynvest/generator-react
+yo @easynvest/react
 ```
 
 ## Getting To Know Yeoman

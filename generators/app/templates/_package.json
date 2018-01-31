@@ -18,7 +18,7 @@
     "lint": "eslint src",
     "prepush": "npm run lint && npm run test:coverage",
     "eject": "react-scripts eject",
-    "mock-server": "./node_modules/.bin/mock-server start"
+    "mock-server": "mock-server start"
   },
   "jest": {
     "collectCoverageFrom": [
