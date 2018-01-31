@@ -146,9 +146,12 @@ module.exports = class extends Generator {
   }
 
   _writingManifest() {
-    this.fs.copy(
+    this.fs.copyTpl(
       this.templatePath('public/manifest.json'),
-      this.destinationPath('public/manifest.json')
+      this.destinationPath('public/manifest.json'),
+      {
+        name: this.props.appname
+      }
     );
   }
 
