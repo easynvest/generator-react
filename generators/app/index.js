@@ -62,6 +62,8 @@ module.exports = class extends Generator {
     this._writingIndexBootstrapApp();
     this._writingApp();
     this._writingE2e();
+    this._writingDockerfile();
+    this._writingNginx();
 
     this.composeWith(require.resolve('generator-git-init'));
   }
@@ -237,5 +239,13 @@ module.exports = class extends Generator {
       this.templatePath('e2e/report/gitignore'),
       this.destinationPath('e2e/report/.gitignore')
     );
+  }
+
+  _writingDockerfile() {
+    this.fs.copy(this.templatePath('Dockerfile'), this.destinationPath('Dockerfile'));
+  }
+
+  _writingNginx() {
+    this.fs.copy(this.templatePath('nginx.conf'), this.destinationPath('nginx.conf'));
   }
 };
