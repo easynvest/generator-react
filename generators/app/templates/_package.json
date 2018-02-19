@@ -6,9 +6,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build:pre": "react-scripts build",
-    "build:pkg":
-      "cd build/; zip -r ../$npm_package_name-$npm_package_version.zip .",
-    "build": "npm run build:pre && npm run build:pkg",
+    "build:docker":
+      "docker build -t easynvest.clients/$npm_package_name:$npm_package_version .",
+    "build": "npm run build:pre && npm run build:docker",
     "webdrive-update": "webdriver-manager update",
     "test": "react-scripts test --env=jsdom",
     "test:coverage": "npm run test -- --no-cache --coverage",
@@ -24,7 +24,10 @@
     "collectCoverageFrom": [
       "src/**/*.{js}",
       "!src/index.js",
-      "!src/registerServiceWorker.js"
+      "!src/registerServiceWorker.js",
+      "!src/setupTests.js",
+      "!src/store/index.js",
+      "!src/store/rootReducer.js"
     ],
     "coverageThreshold": {
       "global": {
