@@ -53,14 +53,10 @@ module.exports = class extends Generator {
     this._writingEditorConfig();
     this._writingBabelRc();
     this._writingEslint();
-    this._writingSetupTests();
     this._writingIndexHtml();
     this._writingFavicon();
     this._writingManifest();
-    this._writingServiceWorker();
-    this._writingLogo();
-    this._writingIndexBootstrapApp();
-    this._writingApp();
+    this._writingSrcFiles();
     this._writingE2e();
     this._writingDockerfile();
     this._writingNginx();
@@ -136,27 +132,20 @@ module.exports = class extends Generator {
     this.fs.copy(this.templatePath('babelrc'), this.destinationPath('.babelrc'));
   }
 
+  _writingSrcFiles() {
+    this._writingSetupTests();
+    this._writingServiceWorker();
+    this._writingLogo();
+    this._writingApp();
+    this._writingIndexBootstrapApp();
+    this._writingStoreIndex();
+    this._writingStoreRootReducer();
+  }
+
   _writingSetupTests() {
     this.fs.copy(
       this.templatePath('src/setupTests.js'),
       this.destinationPath('src/setupTests.js')
-    );
-  }
-
-  _writingFavicon() {
-    this.fs.copy(
-      this.templatePath('public/favicon.ico'),
-      this.destinationPath('public/favicon.ico')
-    );
-  }
-
-  _writingManifest() {
-    this.fs.copyTpl(
-      this.templatePath('public/manifest.json'),
-      this.destinationPath('public/manifest.json'),
-      {
-        name: this.props.appname
-      }
     );
   }
 
@@ -187,6 +176,37 @@ module.exports = class extends Generator {
 
   _writingIndexBootstrapApp() {
     this.fs.copy(this.templatePath('src/index.js'), this.destinationPath('src/index.js'));
+  }
+
+  _writingStoreIndex() {
+    this.fs.copy(
+      this.templatePath('src/store/index.js'),
+      this.destinationPath('src/store/index.js')
+    );
+  }
+
+  _writingStoreRootReducer() {
+    this.fs.copy(
+      this.templatePath('src/store/rootReducer.js'),
+      this.destinationPath('src/store/rootReducer.js')
+    );
+  }
+
+  _writingFavicon() {
+    this.fs.copy(
+      this.templatePath('public/favicon.ico'),
+      this.destinationPath('public/favicon.ico')
+    );
+  }
+
+  _writingManifest() {
+    this.fs.copyTpl(
+      this.templatePath('public/manifest.json'),
+      this.destinationPath('public/manifest.json'),
+      {
+        name: this.props.appname
+      }
+    );
   }
 
   _writingEslint() {

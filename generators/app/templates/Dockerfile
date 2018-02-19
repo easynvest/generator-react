@@ -1,7 +1,7 @@
 FROM nginx:alpine
-MAINTAINER easynvest
+MAINTAINER Easynvest
 
-ADD build /usr/share/nginx/html
+COPY build /var/www
 COPY nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 80
